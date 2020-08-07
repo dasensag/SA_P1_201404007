@@ -2,9 +2,9 @@
 
 class SOAPClient {
  
-    public static function soap_request($soap_url, $soap_file_name, $search_values = array(), $replace_values = array()){
+    public static function soap_request($endpoint, $envelope_file, $search_values = array(), $replace_values = array()){
     
-        $soap_request = file_get_contents(dirname(__FILE__)."/xml/".$soap_file_name.".xml", false);
+        $soap_request = file_get_contents(dirname(__FILE__)."/xml/".$envelope_file.".xml", false);
         if(count($search_values) === count($replace_values)){
             $soap_request = str_replace($search_values, $replace_values, $soap_request);
         } // if
@@ -17,7 +17,7 @@ class SOAPClient {
         );
     
         $soap_do = curl_init();
-        curl_setopt($soap_do, CURLOPT_URL, $soap_url);
+        curl_setopt($soap_do, CURLOPT_URL, $endpoint);
         curl_setopt($soap_do, CURLOPT_CONNECTTIMEOUT, 10);
         curl_setopt($soap_do, CURLOPT_TIMEOUT,        10);
         curl_setopt($soap_do, CURLOPT_RETURNTRANSFER, true );
@@ -30,5 +30,4 @@ class SOAPClient {
         $result = curl_exec($soap_do);
         return $result;
     }
-
 }

@@ -2,7 +2,8 @@
    <soap:Header/>
    <soap:Body>
       <adm:readList>
-        <filterSearch>201404007</filterSearch>
+        <filterSearch>{$filterSearch}</filterSearch>
+        <limit>100</limit>
       </adm:readList>
    </soap:Body>
 </soap:Envelope>
