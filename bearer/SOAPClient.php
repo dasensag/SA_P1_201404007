@@ -13,7 +13,7 @@ class SOAPClient {
      * @param array $replace_values (optional),  values to be replaced in XML file. Needs to have same size as $search_values
      * @return none
      */
-    public static function soap_request($endpoint, $envelope_file, $search_values = array(), $replace_values = array()){
+    public static function soap_request($endpoint, $envelope_file, $bearer_token, $search_values = array(), $replace_values = array()){
     
         $soap_request = file_get_contents(dirname(__FILE__)."/xml/".$envelope_file.".xml", false); // reads soap envelope body from XML file
         if(count($search_values) === count($replace_values)){ // replace variables in XML file with the actual value
@@ -24,6 +24,7 @@ class SOAPClient {
             "Content-type: text/xml;charset=\"utf-8\"",
             "Accept: text/xml",
             "Content-length: ".strlen($soap_request),
+            "Authorization: Bearer $bearer_token",
         );
     
         $soap_do = curl_init();

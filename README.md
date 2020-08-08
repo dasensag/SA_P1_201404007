@@ -1,4 +1,4 @@
-# P1 Software Avanzado
+# P2 Software Avanzado
 
 PHP command script to send SOAP requests.
 
