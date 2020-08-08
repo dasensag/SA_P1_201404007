@@ -17,7 +17,7 @@ The script sends two possible SOAP request to a Contact Webservice:
 ## Usage
 
 In the terminal run: **php main.php *[command]*** where command can be:
-* readList: displays the list of contacts returned by the web service
-* createBatch: creates a batch of ten contacts, sending one by one to the web service. 
+* **readList**: displays the list of contacts returned by the web service
+* **createBatch**: creates a batch of ten contacts, sending one by one to the web service. 
 
 
