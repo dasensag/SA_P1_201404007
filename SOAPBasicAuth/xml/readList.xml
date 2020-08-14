@@ -1,0 +1,9 @@
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:adm="https://api.softwareavanzado.world/media/redcore/webservices/joomla/administrator.contact.1.0.0.wsdl">
+   <soap:Header/>
+   <soap:Body>
+      <adm:readList>
+        <filterSearch>{$filterSearch}</filterSearch>
+        <limit>100</limit>
+      </adm:readList>
+   </soap:Body>
+</soap:Envelope>
